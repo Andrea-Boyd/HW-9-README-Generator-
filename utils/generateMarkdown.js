@@ -34,7 +34,7 @@ ${data.test}
 
 ## Questions
 GitHub Profile: [${data.github}](http://www.github.com/${data.github})  
-Email: ${data.email}
+For questions regarding this project, please contact me via email at ${data.email}
 
 `;
 }

@@ -9,7 +9,7 @@ The task of this homework is to create a command-line application that dynamical
 node index.js
 ```
 
-Because this is a command-line application that won’t be deployed, this link provides a walkthrough video that demonstrates the functionality of my application: 
+Because this is a command-line application that won’t be deployed, this link provides a walkthrough video that demonstrates the functionality of my application: https://drive.google.com/file/d/1KjEjHG7PZJE6z6MwPdNNtrIySoWnbZFT/view
 
 
 
@@ -32,4 +32,3 @@ THEN this is added to the section of the README entitled Questions, with instruc
 WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
-
