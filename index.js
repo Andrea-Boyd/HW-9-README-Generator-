@@ -3,35 +3,25 @@ const inquirer = require("inquirer");
 const markdownGen = require("./utils/generateMarkdown.js");
 
 
-//REDME should generate showing: Title, Description, License Badge(s), Table of Contents 
 
-//Need to somehow create a table of contents with the following section titles that are links to the coordesponding info in the README
-//Installation 
-//Usage 
-//License 
-//Contributing 
-//Tests 
-//Questions 
 
 
 
 // array of questions for user
-const questions = [
-    "What is the title of this project?",
-    "Briefly describe this project: ",
-    "What are the installation instructions for this project?",
-    "What is the usage information for this project?",
-    "Explain (if any) the license(s) for this project: ",
-    "What are the contributing guidelines for this project?",
-    "What are the test instructions for this project?",
-    "What is your GitHub user name?",
-    "What is your email?"
+const licenseOptions = ([
+    "MIT",
+    "APACHE 2.0",
+    "GPL 3.0",
+    "BSD 3",
+    "NONE"
+]);
 
-];
+
+
 
 // function to write README file (copied and unsure what to do with the process.argv stuff)
 function writeToFile(data) {
-    fs.writeFile("README.md", markdownGen(data) + '\n', function(err) {
+    fs.writeFile("README.md", markdownGen(data), function(err) {
 
     if (err) {
         return console.log(err);
@@ -50,14 +40,49 @@ function init() {
      },
      {
          type: "input",
-         name: "cats",
-         message: "How many cats do you have?"
-     }
+         name: "description",
+         message: "Provide a description for this project: "
+     },
+     {
+         type: "list",
+         name: "licenses",
+         message: "Identify (if any) the license for this project: ",
+         choices: licenseOptions 
+     },
+    {    type: "input",
+         name: "installation",
+         message: "What are the installation instructions for this project?"
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "What is the usage information for this project?"
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: "What are the contributing guidelines for this project?"
+    },
+    {
+        type: "input",
+        name: "test",
+        message: "What commands should be run to test this project?"
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "What is your GitHub user name?" 
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email?"
+    }
+
  ]).then(function(res){
-     console.log(res.title)
      writeToFile(res)
  })
 }
 
 // function call to initialize program
-init()
+init();
